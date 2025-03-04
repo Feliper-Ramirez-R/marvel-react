@@ -13,7 +13,7 @@ const MARVEL_PUBLIC_KEY = import.meta.env.VITE_MARVEL_API_KEY_PUBLIC;
 const ts = new Date().getTime().toString();
 const hash = md5(`${ts}${MARVEL_PRIVATE_KEY}${MARVEL_PUBLIC_KEY}`);
 const MARVEL_BASE_URL = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${MARVEL_PUBLIC_KEY}&hash=${hash}`;
-const CAPTCHA_API_KEY = import.meta.env.VITE_RECAPTCHA_KEY
+const CAPTCHA_API_KEY = import.meta.env.VITE_RECAPTCHA_KEY;
 
 const Login = () => {
   const [email, setEmail] = useState('');
