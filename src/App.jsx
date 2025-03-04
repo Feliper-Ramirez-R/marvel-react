@@ -8,12 +8,12 @@ import md5 from 'md5';
 import 'antd/dist/reset.css';
 import './App.css';
 
-const MARVEL_PRIVATE_KEY = '292f46bbb0795584431ccbb86d40b0bcad7ad927';
-const MARVEL_PUBLIC_KEY = '14b48332ed7a5c9110df296cb3042010';
+const MARVEL_PRIVATE_KEY = import.meta.env.VITE_MARVEL_API_KEY_PRIVATE;
+const MARVEL_PUBLIC_KEY = import.meta.env.VITE_MARVEL_API_KEY_PUBLIC;
 const ts = new Date().getTime().toString();
 const hash = md5(`${ts}${MARVEL_PRIVATE_KEY}${MARVEL_PUBLIC_KEY}`);
 const MARVEL_BASE_URL = `https://gateway.marvel.com/v1/public/characters?ts=${ts}&apikey=${MARVEL_PUBLIC_KEY}&hash=${hash}`;
-const CAPTCHA_API_KEY = '6LdCcekqAAAAADuWDwBD9jPZbcsbKcMPKV3fVyyv'
+const CAPTCHA_API_KEY = import.meta.env.VITE_RECAPTCHA_KEY
 
 const Login = () => {
   const [email, setEmail] = useState('');
